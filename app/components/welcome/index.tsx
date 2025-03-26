@@ -64,6 +64,7 @@ const Welcome: FC<IWelcomeProps> = ({
     else {
       setInputs(savedInputs)
     }
+    onStartChat(inputs)
   }, [savedInputs])
 
   const highLightPromoptTemplate = (() => {
