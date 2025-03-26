@@ -64,8 +64,14 @@ const Welcome: FC<IWelcomeProps> = ({
     else {
       setInputs(savedInputs)
     }
-    onStartChat(inputs)
   }, [savedInputs])
+
+  // 新增自动触发逻辑
+  useEffect(() => {
+    if (!hasSetInputs && canChat()) {
+      onStartChat(inputs)
+    }
+  }, [hasSetInputs, inputs]) // 依赖项确保只在初始化完成后触发
 
   const highLightPromoptTemplate = (() => {
     if (!promptConfig)
